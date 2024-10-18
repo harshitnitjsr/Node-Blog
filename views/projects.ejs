@@ -1,0 +1,173 @@
+<!-- projectDetail.ejs -->
+
+<!-- <%- include('partials/header'); -%> -->
+
+<section class="project-detail bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-16 px-8 rounded-lg shadow-xl transform transition-transform duration-300 hover:scale-105">
+  <div class="container mx-auto">
+    <!-- Project Title -->
+    <h1 class="text-5xl font-extrabold mb-8 text-center tracking-wide hover:text-indigo-200 transition-colors duration-300 transform hover:scale-105">
+      <%= project.title %>
+    </h1>
+    <!-- Project Description -->
+    <p class="text-xl mb-12 text-center opacity-90 max-w-3xl mx-auto leading-relaxed">
+      <%= project.description %>
+    </p>
+
+    <!-- Project Features -->
+    <div class="project-details mb-12">
+      <h3 class="text-3xl font-semibold mb-6 text-center text-indigo-100">Features</h3>
+      <ul class="space-y-6 text-lg opacity-90 list-inside mx-auto max-w-3xl">
+        <% project.features.forEach(feature => { %>
+          <li class="list-disc pl-5 text-gray-100 hover:text-indigo-200 transition-colors duration-300 hover:scale-105 transform">
+            <%= feature %>
+          </li>
+        <% }) %>
+      </ul>
+    </div>
+
+    <!-- Project Links (GitHub and Live Demo) -->
+    <div class="project-links flex justify-center gap-8">
+      <a href="<%= project.githubLink %>" target="_blank" class="bg-indigo-800 hover:bg-indigo-700 text-white px-8 py-4 rounded-lg shadow-lg hover:scale-105 transition-all duration-200 transform">
+        View on GitHub
+      </a>
+      <a href="<%= project.liveLink %>" target="_blank" class="bg-indigo-800 hover:bg-indigo-700 text-white px-8 py-4 rounded-lg shadow-lg hover:scale-105 transition-all duration-200 transform">
+        Live Demo
+      </a>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer'); -%>
+
+<style>
+    /* General Body and Page Styles */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #1a202c;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+/* Section Styling */
+.project-detail {
+  background: linear-gradient(135deg, #3b82f6, #6366f1); /* Blue to Indigo gradient */
+  padding: 4rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-detail:hover {
+  transform: scale(1.05); /* Adds a slight zoom effect */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+/* Title Styles */
+.project-detail h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 0.05em;
+  margin-bottom: 2rem;
+  transition: color 0.3s ease;
+}
+
+.project-detail h1:hover {
+  color: #4f46e5; /* Hover color for title */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Description Styling */
+.project-detail p {
+  font-size: 1.25rem;
+  text-align: center;
+  opacity: 0.9;
+  margin-bottom: 3rem;
+  line-height: 1.75;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Features Section */
+.project-details {
+  margin-bottom: 3rem;
+}
+
+.project-details h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  color: #d1d5db; /* Light Indigo color */
+  margin-bottom: 2rem;
+}
+
+/* Features List */
+.project-details ul {
+  list-style-position: inside;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+}
+
+.project-details li {
+  font-size: 1.125rem;
+  color: #e5e7eb;
+  margin-bottom: 1rem;
+  padding-left: 1.25rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.project-details li:hover {
+  color: #4f46e5; /* Indigo color on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Project Links (Buttons) */
+.project-links a {
+  display: inline-block;
+  background-color: #4f46e5; /* Indigo color */
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.project-links a:hover {
+  background-color: #4338ca; /* Darker Indigo on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .project-detail {
+    padding: 3rem 1.5rem;
+  }
+
+  .project-detail h1 {
+    font-size: 2.5rem;
+  }
+
+  .project-detail p {
+    font-size: 1.125rem;
+  }
+
+  .project-links {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .project-links a {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+</style>
