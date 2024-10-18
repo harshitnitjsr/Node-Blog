@@ -1,5 +1,71 @@
 <%- include('partials/header'); -%>
 
+<style>
+    /* (Insert the CSS code from above here) */
+    /* Styles for the blog container */
+.blog-container {
+    background: linear-gradient(to right, #f8cdda, #1d2b64);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* Title styles */
+.post-title {
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Input styles */
+.compose-input {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border 0.3s ease;
+}
+
+.compose-input:focus {
+    border: 2px solid #fff;
+    outline: none;
+}
+
+/* Button styles */
+.publish-btn {
+    background-color: #ff6b6b;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.publish-btn:hover {
+    background-color: #ff3b3b;
+    transform: scale(1.05);
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+</style>
+
 <div class="blog-container compose-container">
     <form action="/compose" method="post">
         <div class="col-md-12">
@@ -7,8 +73,7 @@
                 Write Something ..
             </h1>
             <input type="text" name="title" class="compose-input title-input" placeholder="Your post title"/>
-            <textarea placeholder="Your post content goes here...." name="post" type="text"
-                class="compose-input"></textarea>
+            <textarea placeholder="Your post content goes here...." name="post" class="compose-input"></textarea>
         </div>
         <div class="col-md-12">
             <button type="submit" class="read-more publish-btn">
@@ -17,5 +82,9 @@
         </div>
     </form>
 </div>
+
+<script>
+    // (Insert the JavaScript code from above here)
+</script>
 
 <%- include('partials/footer'); -%>
